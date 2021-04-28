@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+from rest_framework import response
 
 import sentry_sdk
 import json
@@ -65,8 +66,9 @@ class InventoreyView(SentryContextMixin, APIView):
 
     def get(self, request):
         results = InventorySerializer(InventoryData, many=True).data
+        division_by_zero = 1 / 0
         return Response(results)
-
+    
 
     def post(self, request, format=None):
         body_unicode = request.body.decode('utf-8')
@@ -91,14 +93,17 @@ class HandledErrorView(APIView):
 
 class UnHandledErrorView(APIView):
      def get(self, request):
+        
         add_breadcrumb(
-            category='URL Endpoints',
-            message='In the unhandled function',
-            level='info',
+        category='URL Endpoints',
+        message='In the unhandled function',
+        level='info',
         )      
         obj = {}
-        obj['keyDoesntExist']
+        # obj['keyDoesntExist']
+        division_by_zero = 1 / 0
         return Response()
+                
 
 class CaptureMessageView(APIView):
     def get(self, request):

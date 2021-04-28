@@ -1,6 +1,6 @@
-SENTRY_AUTH_TOKEN=<your_auth_token>
-SENTRY_ORG=<YOUR ORG NAME>
-SENTRY_PROJECT=<YOUR PROJECT NAME>
+SENTRY_AUTH_TOKEN=88ec4d849dfa416ca07519ea11a10f0788162a1023ba4455aba3ca3f652cc49b
+SENTRY_ORG=sentry
+SENTRY_PROJECT=python
 VERSION=`sentry-cli releases propose-version`
 
 deploy: install create_release associate_commits run_django
